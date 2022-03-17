@@ -3,8 +3,15 @@ import "./componentA.css";
 
 export default class ComponentA extends Component {
   render() {
+    const id = "a";
     return (
-      <div className={"component component-a"}>
+      <div className={`component  ${this.props.color}`}>
+        <button
+          className={`color-button`}
+          onClick={() => this.props.setNewColor(this.props.color, id)}
+        >
+          Change Backgroundcolor
+        </button>
         <span className={"component_title"}> Component A </span>
       </div>
     );
