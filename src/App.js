@@ -1,4 +1,4 @@
-import React, { useReducer, useCallback } from "react";
+import React, { useReducer, useCallback, useEffect } from "react";
 import ComponentA from "./components/componentA";
 import ComponentB from "./components/componentB";
 import "./App.css";
@@ -6,9 +6,8 @@ import "./App.css";
 const colorReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_COLOR":
-      console.log(state);
       let id1 = action.payload.id;
-      let id2 = action.payload.id === "a" ? "b" : "a";
+      let id2 = id1 === "a" ? "b" : "a";
 
       return {
         [id1]:
@@ -22,12 +21,16 @@ const colorReducer = (state, action) => {
 };
 
 function App() {
-  const [colorState, dispatch] = useReducer(colorReducer, {
-    a: "aquamarine",
-    b: "aquamarine",
+  const [colorState, dispatch] = useReducer(colorReducer, {}, () => {
+    const localColors = localStorage.getItem("colors");
+    return localColors
+      ? JSON.parse(localColors)
+      : { a: "aquamarine", b: "aquamarine" };
   });
 
-  console.log(colorState);
+  useEffect(() => {
+    localStorage.setItem("colors", JSON.stringify(colorState));
+  }, [colorState]);
 
   const setNewColor = useCallback((oldColor, id) => {
     dispatch({

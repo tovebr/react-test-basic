@@ -4,7 +4,6 @@ import "./componentB.css";
 export default class ComponentB extends Component {
   render() {
     const id = "b";
-    console.log(this.props);
     return (
       <div className={`component ${this.props.color}`}>
         <button
