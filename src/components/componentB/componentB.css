@@ -1,0 +1,11 @@
+/* centering title the oldschool way */
+.component-b {
+  position: relative;
+}
+
+.component-b_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
