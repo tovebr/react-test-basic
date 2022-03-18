@@ -1,30 +1,17 @@
 import React, { useReducer, useCallback, useEffect } from "react";
 import ComponentA from "./components/componentA";
 import ComponentB from "./components/componentB";
+import { appReducer } from "./reducer";
 import "./App.css";
 
-const appReducer = (state, action) => {
-  switch (action.type) {
-    case "CHANGE_COLOR":
-      let id1 = action.payload.id;
-      let id2 = id1 === "a" ? "b" : "a";
-      console.log(state);
-      return {
-        ...state,
-        [id1]:
-          action.payload.oldColor === "lightpink" ? "aquamarine" : "lightpink",
-        [id2]:
-          action.payload.oldColor === "lightpink" ? "lightpink" : "aquamarine",
-      };
-    case "UPDATE_TEXT":
-      return {
-        ...state,
-        text: action.payload,
-      };
-    default:
-      return { state };
-  }
-};
+// As you can see I'm on a slippery slope towards bad practice.
+// I wish i hade started out with useState, i dont really have
+// coverage for useReduce or useContext. it kinda got out of
+// hand when i needed to add the text-property to state and
+// now i've got a reducer handling all data...
+// Im inbetween redux and useState knowledgewise so i don't
+// know what the best way to organize the code is.
+// But it works so thats neat!
 
 function App() {
   const [appState, dispatch] = useReducer(appReducer, {}, () => {
@@ -33,8 +20,6 @@ function App() {
       ? JSON.parse(localAppState)
       : { a: "aquamarine", b: "aquamarine", text: "" };
   });
-
-  console.log(appState);
 
   useEffect(() => {
     localStorage.setItem("appState", JSON.stringify(appState));
