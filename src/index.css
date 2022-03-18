@@ -25,6 +25,7 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
 }
 
 .component_title {
