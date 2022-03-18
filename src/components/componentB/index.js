@@ -7,12 +7,13 @@ export default class ComponentB extends Component {
     return (
       <div className={`component ${this.props.color}`}>
         <button
-          className={`color-button`}
+          className={`color-button rectangle`}
           onClick={() => this.props.setNewColor(this.props.color, id)}
         >
           Change Backgroundcolor
         </button>
         <span className={"component_title"}> Component B </span>
+        <p className='rectangle text-output'>{this.props.text}</p>
       </div>
     );
   }
