@@ -5,7 +5,7 @@ export default class ComponentB extends Component {
   render() {
     const id = "b";
     return (
-      <div className={`component ${this.props.color}`}>
+      <div className={`component component-b ${this.props.color}`}>
         <button
           className={`color-button rectangle`}
           onClick={() => this.props.setNewColor(this.props.color, id)}

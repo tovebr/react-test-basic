@@ -1,11 +1,15 @@
 /* centering title the oldschool way */
 .component-b {
-  position: relative;
+  animation: componentB forwards 0.8s;
 }
 
-.component-b_title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+@keyframes componentB {
+  from {
+    transform: translateY(30rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

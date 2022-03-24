@@ -10,6 +10,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(214, 213, 213);
+  overflow: hidden;
 }
 
 code {
@@ -17,15 +19,21 @@ code {
     monospace;
 }
 
+#root {
+  /* background-color: #a1eacd; */
+  background: linear-gradient(-20deg, transparent 55%, #7c7c7c 0) 0 40%,
+    linear-gradient(60deg, transparent 55%, #ffffff 0) 0 50%;
+}
+
 .component {
-  border: 1px solid black;
   width: 300px;
   height: 300px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0.5rem;
+  box-shadow: rgb(131, 130, 130) 2px 2px 7px;
 }
 
 .component_title {
@@ -33,11 +41,13 @@ code {
 }
 
 .aquamarine {
-  background-color: aquamarine;
+  background-color: rgb(38, 252, 206);
+  transition: all 0.5s ease-in-out;
 }
 
 .lightpink {
-  background-color: lightpink;
+  background-color: rgb(252, 152, 167);
+  transition: all 0.5s ease-in-out;
 }
 
 .rectangle {
@@ -49,18 +59,18 @@ code {
 }
 
 .text-output {
-  background-color: rgb(212, 252, 238);
+  /* background-color: rgb(230, 235, 233); */
   height: 1rem;
   padding: 0.5rem 0.7rem 0.9rem 0.7rem;
 }
 
 .color-button {
-  background-color: rgb(99, 54, 141);
+  background-color: rgb(59, 59, 59);
   border: none;
   color: #fff;
   padding: 0.7rem 0;
   border-radius: 3px;
-  box-shadow: rgb(112, 111, 111) 2px 2px 5px;
+  /* box-shadow: rgb(131, 130, 130) 2px 2px 7px; */
   transition: all 0.2s ease-in-out;
   margin: 2rem 0;
 }

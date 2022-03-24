@@ -3,4 +3,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  animation: componentA forwards 0.8s;
+}
+
+@keyframes componentA {
+  from {
+    transform: translateY(-30rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
